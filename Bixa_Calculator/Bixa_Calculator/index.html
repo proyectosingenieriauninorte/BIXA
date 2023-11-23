@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hex_Calculator</title>
     <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -43,10 +45,16 @@
             </select>
     
             <!-- Botón de Calcular -->
-            <button id="calcularButton" onclick="calculadora.realizarOperacion()">Calcular</button>        
+            <button id="calcularButton" onclick="calculadora.realizarOperacionn()">Calcular</button>
+            <button id="calcularProcedimientoButton" onclick="realizarOperacion()">Mostrar Procedimiento</button>
+              
             <div id="resultado"></div>
-          
-         <script>
+            <div id="pasosContainer" class="contorno-pasos">   
+              <div id="pasosDiv"> 
+            </div>             
+            </div>
+           
+             <script>
           // Definir la clase Calculadora
           class Calculadora {
           constructor() {
@@ -62,7 +70,7 @@
           this.operacion = document.getElementById("opciones").value;
           }
 
-          realizarOperacion() {
+          realizarOperacionn() {
           this.obtenerValores();
           var resultado;
 
@@ -157,9 +165,41 @@
   
 
        
-         <footer >
-            <p>BixCalculator &copy;. Todos los derechos reservados</p>
-          </footer>
+        
+  <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <h3>Contacto</h3>
+            <p>Dirección: 123 Calle Principal, Ciudad</p>
+            <p>Email: info@bixcalculator.com</p>
+            <p>Teléfono: (123) 456-7890</p>
+            <ul>
+              <li><a href="#" target="_blank">Respositorio Github</a></li>
+              
+          </ul>
+        </div>
+
+        <div class="footer-content">
+            <h3>Enlaces</h3>
+            <ul>
+                
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h3>Redes Sociales</h3>
+            <ul>
+                <li><a href="#" target="_blank">Facebook</a></li>
+                <li><a href="#" target="_blank">Twitter</a></li>
+                <li><a href="#" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="copyright">BixCalculator &copy; Todos los derechos reservados</p>
+</footer>
       
 </body>
 </html>
