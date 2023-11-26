@@ -27,13 +27,14 @@
       <section class="presentation" id = "presentation">  
         <div class = "presentation-paragraph"><h2>Calculadora de Binarios</h2></div>
         <div class="input-container">
+          <div id="alertaBinaria" class="alerta-binaria">Ingresa solo números binarios (1s y 0s) en este campo.</div>
             <!-- Primera línea -->
             <label for="linea1">Primer Numero</label>
-            <input type="text" id="linea1" placeholder="Escribe algo...">
+            <input type="text" id="linea1" placeholder="Escribe algo..."  oninput="validarBinario(this)">
     
             <!-- Segunda línea -->
             <label for="linea2">Segundo Numero</label>
-            <input type="text" id="linea2" placeholder="Otra cosa...">
+            <input type="text" id="linea2" placeholder="Otra cosa..."  oninput="validarBinario(this)">
     
             <!-- Opciones en el medio -->
             <label for="opciones">Operaciones</label>
