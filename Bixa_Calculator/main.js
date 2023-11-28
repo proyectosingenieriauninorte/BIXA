@@ -490,8 +490,10 @@ function realizarOperacion(){
             miLista[j] = miLista[j] + matrizCadenas.map(row => row.join('  ')).join('\n');
             miLista[j] = miLista[j] + "\n"
             console.log(miLista[j]);
+            console.log(j);
+
         }
-        j = j + 1
+        //j = j + 1
         //console.log(miLista1);
         miLista[j] = ""
         miLista[j] = miLista[j] + "Se revisa al terminar la resta si queda un acarreo de 1 para verifivar si el resultado de la resta da un binario negativo o no:\n"
@@ -693,8 +695,7 @@ function realizarOperacion(){
                     //console.log(rta2 + " cabe en " + aux + " por lo que toca multiplicarlo por 1 y restar el resultado a " + aux)
                     m[1][iaux2] = "1"
                     aux = (parseInt(aux, 2) - parseInt(rta2, 2)).toString(2);
-                    console.log(rta2)
-                    carac = rta2.length;
+                    carac = rta2.length
                     for (let i1 = i; i1 >= (i - (rta2.length - 1)); i1--) {
                         m[iaux + 1][i1] = rta2.substring(carac - 1, carac);
                         carac = carac - 1;
@@ -719,8 +720,6 @@ function realizarOperacion(){
                     miLista[i] = miLista[i] + "Bajamos el siguiente numero, el cual en este caso es: " + rta[i + 1]
                     //console.log("Bajamos el siguiente numero, el cual en este caso es: " + rta[i + 1])
                     m[iaux + 2][i + 1] = rta[i + 1]
-                }else{
-                    break;
                 }
         
                 aux = aux + rta[i + 1]
@@ -734,27 +733,25 @@ function realizarOperacion(){
                 //console.log(m);
                 console.log(miLista[i]);
             }
-            miLista[i] = miLista[i] + "\n"
-            miLista[i] = miLista[i] + "\n"
-            miLista[i] = miLista[i] + "La respuesta es: ";
-            miLista[i] = miLista[i] + "\n"
-
             //
+            let iauxxxxx=i-1
             rta = m[1];
             let rta1aux = rta1
             rta1 = ""
+
             for (i = iaux3; i < rta1aux.length + iaux3; i++) {
                 if (i == iaux3) {
                     rta1 = rta[i]
-        
+console.log(rta1)
                 } else {
                     rta1 = rta1 + rta[i]
                 }
         
             }
+            console.log(miLista)
             console.log(rta1)
-            miLista[i] = miLista[i] + rta1;
-            return miLista;
+          miLista[iauxxxxx] = miLista[iauxxxxx] +"La respuesta de la divisón es: "+ rta1;
+                    return miLista;
         }
 
 
@@ -812,17 +809,24 @@ function realizarOperacion(){
 
 
         function mostrarLista(Lista, operacion){
+            console.log(Lista);
             let divMostrar = document.getElementById("pasosDiv");
             divMostrar.innerHTML = "";  
             if(operacion == "Suma" || operacion == "Resta"){
                 Lista.reverse();  
             }
             for (let i = 0; i < Lista.length; i++) {
-              let parrafo = document.createElement("pre");
-              parrafo.innerText = Lista[i];
-              divMostrar.appendChild(parrafo);
-            }        
+                if (Lista[i] !== undefined) {
+                  let parrafo = document.createElement("pre");
+                  parrafo.innerText = Lista[i];
+                  divMostrar.appendChild(parrafo);
+                  console.log(parrafo);
+                  
+                }
+              }
+                      
             
+
             divMostrar.style.whiteSpace = "nowrap";
             divMostrar.style.overflowX = "auto";
 
