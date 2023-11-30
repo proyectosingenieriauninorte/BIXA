@@ -1,3 +1,6 @@
+let indiceActual = 0
+let listica = []
+let re = false
 function realizarOperacion() {
     valorLinea1 = document.getElementById("linea1").value;
     console.log(valorLinea1);
@@ -450,7 +453,7 @@ function explicacionsf(m, o, f) {
     miLista[jaux] = '<span class="resaltado">' + "" + '</span>'
     if (o === 0) {
         miLista[jaux] = miLista[jaux] + "\n"
-        miLista[jaux] = miLista[jaux] + rta1;
+        miLista[jaux] = miLista[jaux] + "El resultado es: "+rta1;
     } else {
         miLista[jaux] = miLista[jaux] + "\n"
         miLista[jaux] = miLista[jaux] + "El resultado final de la suma es el resultado de la resta, solamente que se le añade un - ya que es negativo, quedando de esta manera:\n"
@@ -536,6 +539,7 @@ function explicacionr(m) {
                         miLista[jaux] = miLista[jaux] + '<span class="resaltado">' + "0-0=0" + '</span>'
                         matrizCadenas[0][j + 1] = '<span class="resaltado">' + matrizCadenas[0][j + 1] + '</span>'
                         matrizCadenas[2][j + 1] = '<span class="resaltado">' + matrizCadenas[2][j + 1] + '</span>'
+                        matrizCadenas[4][j + 1] = '<span class="resaltado">' + "0" + '</span>'
                         matrizCadenas = cambiarCerosPorEspacios(matrizCadenas, 1, 2)
                         //miLista[jaux] = miLista[jaux] + "\n"
                         //miLista[jaux] = miLista[jaux] + "\n"
@@ -1044,28 +1048,49 @@ function rnegativo(m) {
 
 
 
+
 function mostrarLista(Lista, operacion) {
     console.log(Lista);
     let divMostrar = document.getElementById("pasosDiv");
     divMostrar.innerHTML = "";
-    Lista = filtrarResaltados(Lista)
-    for (let i = 0; i < Lista.length; i++) {
-        if (Lista[i] !== undefined) {
-            let parrafo = document.createElement("pre");
-            parrafo.innerHTML = Lista[i];
-            // Añadir estilos de fuente y tamaño de letra
-            parrafo.style.fontFamily = "'Courier New', monospace"; // Reemplaza con la fuente que desees
-            parrafo.style.fontSize = "TuTamaño";   // Reemplaza "TuTamaño" con el tamaño que desees
-            divMostrar.appendChild(parrafo);
-            console.log(parrafo);
-        }
-    }
+    Lista = filtrarResaltados(Lista);
+    Lista = limpiarLista(Lista)
+    listica = Lista
+    mostrarElemento(listica, divMostrar, 0);
 
+
+indiceActual=0
     divMostrar.style.whiteSpace = "nowrap";
     divMostrar.style.overflowX = "auto";
 }
 
+function mostrarElemento(elemento, contenedor, indice) {
+    let parrafo = document.createElement("pre");
+    parrafo.innerHTML = elemento[indice];
+    parrafo.style.fontFamily = "'Courier New', monospace";
+    parrafo.style.fontSize = "TuTamaño";
+    contenedor.appendChild(parrafo);
+    console.log(parrafo);
+}
+function mostrarSiguiente() {
+    let divMostrar = document.getElementById("pasosDiv");
+    divMostrar.innerHTML = "";
+    // Verifica que haya elementos en la lista y que no estemos en la última posición
+    if (indiceActual < listica.length - 1) {
+        indiceActual++;
+        mostrarElemento(listica, divMostrar, indiceActual);
+    }
+}
 
+function mostrarAnterior() {
+    let divMostrar = document.getElementById("pasosDiv");
+    divMostrar.innerHTML = "";
+    // Verifica que haya elementos en la lista y que no estemos en la primera posición
+    if (indiceActual > 0) {
+        indiceActual--;
+        mostrarElemento(listica, divMostrar, indiceActual);
+    }
+}
 //utilidad
 
 function convertirMatrizACadenas(matrizEnteros) {
@@ -1127,7 +1152,9 @@ function eliminarEtiquetas(matriz) {
 
     return listaFiltrada;
 }
-
+function limpiarLista(lista) {
+    return lista.filter(elemento => elemento !== undefined);
+}
 function validarBinario(input) {
     let valor = input.value;
     let esBinario = /^[01]+$/.test(valor);
@@ -1143,3 +1170,4 @@ function validarBinario(input) {
         input.value = "";  // Limpiar el campo si no es binario
     }
 }
+
