@@ -1,0 +1,223 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+    padding: 0%;
+}
+
+header {
+    background-color: #008000; /* Fondo verde oscuro */
+    color: white; /* Texto en color blanco */
+    padding: 20px 0; /* Espaciado interno superior e inferior */
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Asegura que el header esté por encima del contenido */
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Coloca el contenido a los extremos del contenedor */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #45a049; /* Cambia el color al pasar el mouse */
+}
+
+.presentation {
+    background-color: #4CAF50; /* Fondo verde oscuro */
+    color: white; /* Texto en color blanco */
+    padding: 40px 0; /* Espaciado interno superior e inferior */
+    text-align: center; /* Centra el contenido */
+}
+
+.presentation-paragraph h2 {
+    margin: 0; /* Elimina el margen predeterminado del h2 */
+    font-size: 2.5rem; /* Tamaño del texto */
+}
+
+
+/*input Estilos*/
+.input-container {
+    background-color: #e6f7ec; 
+    border: 2px solid #4CAF50; 
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4CAF50; 
+}
+
+input,
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #4CAF50; 
+    border-radius: 5px;
+}
+
+
+/*Container del resultado*/
+
+#resultado{
+    color: black;
+}
+#calcularButton {
+    /* Estilos para el botón de calcular */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+#calcularButton:hover {
+    /* Estilos cuando se pasa el ratón sobre el botón */
+    background-color: #45a049;
+}
+
+#calcularProcedimientoButton {
+    /* Estilos para el botón de calcular */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+#calcularProcedimientoButton:hover{
+    /* Estilos cuando se pasa el ratón sobre el botón */
+    background-color: #45a049;
+}
+
+.contorno-pasos {
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 20px; /* Añade un poco de espacio arriba para separarlo del resto de la página */
+}
+
+#botonesContainer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+}
+
+#atrasButton,
+#siguienteButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#atrasButton:hover,
+#siguienteButton:hover {
+    background-color: #45a049;
+}
+
+#pasosContainer{
+    color: black;
+}
+
+#pasosDiv pre {
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+
+
+
+/*Footer*/
+
+footer {
+    background-color: #1eae42;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.footer-content h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    #linea1, #linea2, #opciones {
+        width: 90%; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+    
+    #calcularButton {
+        width: 60%; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+}

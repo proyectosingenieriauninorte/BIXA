@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hex_Calculator</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .resaltado {
+      font-weight: bold;
+    }
+  </style>
+  </style>
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="index.html">BixCalculator</a></h1> <!--Direcciona a la pagina Principal-->
+      <nav>
+        <ul> <!--Main menu-->
+          <li><a href="#aboutus">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!--Web main presentation-->
+  <section class="presentation" id="presentation">
+    <div class="presentation-paragraph">
+      <h2>Calculadora de Binarios</h2>
+    </div>
+    <div class="input-container">
+      <div id="alertaBinaria" class="alerta-binaria">Ingresa solo números binarios (1s y 0s) en este campo.</div>
+      <!-- Primera línea -->
+      <label for="linea1">Primer Numero</label>
+      <input type="text" id="linea1" placeholder="Escribe algo..." oninput="validarBinario(this)">
+
+      <!-- Segunda línea -->
+      <label for="linea2">Segundo Numero</label>
+      <input type="text" id="linea2" placeholder="Otra cosa..." oninput="validarBinario(this)">
+
+      <!-- Opciones en el medio -->
+      <label for="opciones">Operaciones</label>
+      <select id="opciones">
+        <option value="Suma">Suma</option>
+        <option value="Resta">Resta</option>
+        <option value="Multiplicacion">Multiplicacion</option>
+        <option value="Division">Division</option>
+      </select>
+
+      <!-- Botón de Calcular -->
+      <button id="calcularButton" onclick="calculadora.realizarOperacionn()">Calcular</button>
+      <button id="calcularProcedimientoButton" onclick="realizarOperacion()">Mostrar Procedimiento</button>
+
+      <div id="resultado"></div>
+      <div id="pasosContainer" class="contorno-pasos">
+        <div id="pasosDiv">
+        </div>
+        <!-- Botón Anterior -->
+        <button onclick="mostrarAnterior()">Anterior</button>
+
+        <!-- Botón Siguiente -->
+        <button onclick="mostrarSiguiente()">Siguiente</button>
+      </div>
+
+      <script>
+        // Definir la clase Calculadora
+        class Calculadora {
+          constructor() {
+            this.resultadoElemento = document.getElementById("resultado");
+            this.valorLinea1 = "";
+            this.valorLinea2 = "";
+            this.operacion = "";
+          }
+
+          obtenerValores() {
+            this.valorLinea1 = document.getElementById("linea1").value;
+            this.valorLinea2 = document.getElementById("linea2").value;
+            this.operacion = document.getElementById("opciones").value;
+          }
+
+          realizarOperacionn() {
+            this.obtenerValores();
+            var resultado;
+
+            switch (this.operacion) {
+              case "Suma":
+                resultado = this.sumar(this.valorLinea1, this.valorLinea2);
+                break;
+              case "Resta":
+                resultado = this.restar(this.valorLinea1, this.valorLinea2);
+                break;
+              case "Multiplicacion":
+                resultado = this.multiplicar(this.valorLinea1, this.valorLinea2);
+                break;
+              case "Division":
+                resultado = this.dividir(this.valorLinea1, this.valorLinea2);
+                break;
+              default:
+                resultado = "Operación no válida";
+            }
+
+            this.mostrarResultado("Resultado: " + resultado);
+          }
+
+          mostrarResultado(texto) {
+            this.resultadoElemento.innerText = texto;
+          }
+
+          //Pasamos los valores binarios a enteros, sumamos y el resultado lo pasamos a binario
+
+          sumar(binario1, binario2) {
+            return (parseInt(binario1, 2) + parseInt(binario2, 2)).toString(2);
+          }
+
+          restar(binario1, binario2) {
+            return (parseInt(binario1, 2) - parseInt(binario2, 2)).toString(2);
+          }
+
+          multiplicar(binario1, binario2) {
+            return (parseInt(binario1, 2) * parseInt(binario2, 2)).toString(2);
+          }
+
+          dividir(binario1, binario2) {
+            return (parseInt(binario1, 2) / parseInt(binario2, 2)).toString(2);
+          }
+        }
+
+        // Instanciar un objeto de la clase Calculadora
+        const calculadora = new Calculadora();
+      </script>
+    </div>
+
+  </section>
+
+
+
+  <!--About us section-->
+  <section class="aboutus" id="aboutus">
+    <h2>Sobre Nosotros</h2>
+    <br>
+    <h3>BixCalculator</h3>
+    <br>
+    <br>
+    <br>
+    <p>En BixCalculator, visualizamos un mundo donde la comprensión de los fundamentos de la informática es accesible y
+      emocionante para todos. Nos esforzamos por ser líderes en la revolución educativa digital
+      ,proporcionando una calculadora de binarios innovadora que no solo simplifica los conceptos complejos, sino que
+      también inspira la curiosidad y el descubrimiento. Nuestra visión es empoderar a las mentes del futuro,
+      transformando la educación en una experiencia interactiva y cautivadora, donde cada usuario pueda dominar los
+      secretos del lenguaje binario y desbloquear un mundo de posibilidades tecnológicas.
+    </p>
+    <br>
+    <br>
+    <p>
+    </p>
+    <br>
+    <br>
+    <br>
+    <h2>Nuestro equipo</h2>
+    <br>
+    <br>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <h3>Contacto</h3>
+          <p>Dirección: 123 Calle Principal, Ciudad</p>
+          <p>Email: info@bixcalculator.com</p>
+          <p>Teléfono: (123) 456-7890</p>
+          <ul>
+            <li><a href="https://github.com/proyectosuninorte/BIXA.git" target="_blank">Respositorio Github</a></li>
+
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Enlaces</h3>
+          <ul>
+
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Redes Sociales</h3>
+          <ul>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="copyright">BixCalculator &copy; Todos los derechos reservados</p>
+    </footer>
+
+</body>
+
+</html>
