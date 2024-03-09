@@ -23,7 +23,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /home/azureuser/NginxReverseProxy/
+          cd /home/azureuser/BIXA/
           git pull origin main
           git status
           docker stop bixa-app
