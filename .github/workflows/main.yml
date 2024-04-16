@@ -23,7 +23,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /home/azureuser/BIXA/
+          cd /home/proyecto/BIXA/
           git pull origin main
           git status
           docker stop bixa-app
