@@ -212,11 +212,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.copyright {
-    margin-top: 20px;
-    text-align: center;
-}
-
 
 @media screen and (max-width: 768px) {
     #linea1, #linea2, #opciones {
