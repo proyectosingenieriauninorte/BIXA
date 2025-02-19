@@ -21,20 +21,16 @@
   <header>
     <div class="header-container">
       <h1><a href="index.html">BixCalculator</a></h1> <!--Direcciona a la pagina Principal-->
-      <nav>
-        <ul> <!--Main menu-->
-          <li><a href="#aboutus">Sobre nosotros</a></li>
-        </ul>
-      </nav>
+    
     </div>
   </header>
   <!--Web main presentation-->
   <section class="presentation" id="presentation">
     <div class="presentation-paragraph">
       <h2>Calculadora de Binarios</h2>
+      <h3>Ingresa solo números binarios (1s y 0s) en los campos</h3>
     </div>
     <div class="input-container">
-      <div id="alertaBinaria" class="alerta-binaria">Ingresa solo números binarios (1s y 0s) en este campo.</div>
       <!-- Primera línea -->
       <label for="linea1">Primer Numero</label>
       <input type="text" id="linea1" placeholder="Escribe algo..." oninput="validarBinario(this)">
@@ -61,10 +57,10 @@
         <div id="pasosDiv">
         </div>
         <!-- Botón Anterior -->
-        <button onclick="mostrarAnterior()">Anterior</button>
+        <button id="calcularButton" onclick="mostrarAnterior()">Anterior</button>
 
         <!-- Botón Siguiente -->
-        <button onclick="mostrarSiguiente()">Siguiente</button>
+        <button id="calcularButton" onclick="mostrarSiguiente()">Siguiente</button>
       </div>
 
       <script>
@@ -135,69 +131,19 @@
       </script>
     </div>
 
+    <footer>
+      <p>
+          This is an open-source project by
+          <a id="repo-link" href="#" target="_blank">Proyectos Ingenieria Uninorte</a>.
+      </p>
+      <p>Developed by:</p>
+      <div id="contributors"></div>
+  </footer>
+
   </section>
 
+ 
 
-
-  <!--About us section-->
-  <section class="aboutus" id="aboutus">
-    <h2>Sobre Nosotros</h2>
-    <br>
-    <h3>BixCalculator</h3>
-    <br>
-    <br>
-    <br>
-    <p>En BixCalculator, visualizamos un mundo donde la comprensión de los fundamentos de la informática es accesible y
-      emocionante para todos. Nos esforzamos por ser líderes en la revolución educativa digital
-      ,proporcionando una calculadora de binarios innovadora que no solo simplifica los conceptos complejos, sino que
-      también inspira la curiosidad y el descubrimiento. Nuestra visión es empoderar a las mentes del futuro,
-      transformando la educación en una experiencia interactiva y cautivadora, donde cada usuario pueda dominar los
-      secretos del lenguaje binario y desbloquear un mundo de posibilidades tecnológicas.
-    </p>
-    <br>
-    <br>
-    <p>
-    </p>
-    <br>
-    <br>
-    <br>
-    <h2>Nuestro equipo</h2>
-    <br>
-    <br>
-    <footer>
-      <div class="footer-container">
-        <div class="footer-content">
-          <h3>Contacto</h3>
-          <p>Dirección: 123 Calle Principal, Ciudad</p>
-          <p>Email: info@bixcalculator.com</p>
-          <p>Teléfono: (123) 456-7890</p>
-          <ul>
-            <li><a href="https://github.com/proyectosuninorte/BIXA.git" target="_blank">Respositorio Github</a></li>
-
-          </ul>
-        </div>
-
-        <div class="footer-content">
-          <h3>Enlaces</h3>
-          <ul>
-
-            <li><a href="#">Sobre nosotros</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-content">
-          <h3>Redes Sociales</h3>
-          <ul>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">Twitter</a></li>
-            <li><a href="#" target="_blank">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="copyright">BixCalculator &copy; Todos los derechos reservados</p>
-    </footer>
 
 </body>
 
